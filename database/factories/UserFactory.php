@@ -25,8 +25,9 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'username' => fake()->userName(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            // 'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
@@ -41,4 +42,29 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    public function is_admin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'is_admin' => true,
+        ]);
+    }
+
+
+
+
+    // NOTES
+
+
+    // untuk membuat 2 user dengan is_admin = true (menggunakan tinker)
+    // App\Models\User::factory(2)->is_admin()->create();
+
+
+    // jika ingin membuat custom state kebalikan dari is_admin
+    // public function not_admin(): static
+    // {
+    //     return $this->state(fn (array $attributes) => [
+    //         'is_admin' =>false,
+    //     ]);
+    // }
 }
