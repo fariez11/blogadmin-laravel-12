@@ -1,6 +1,6 @@
 <x-layout :title="$title ?? 'All Post'">
 
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-5 lg:px-6">
+    <div class="py-8 px-4 mx-auto max-w-screen-7xl lg:py-5 lg:px-6">
 
         <form class="max-w-md mx-auto mb-10">
             @if (request('category'))
@@ -57,8 +57,8 @@
                             </a>
                         </div>
                         <a href="/posts/{{ $blog['slug'] }}"
-                            class="inline-flex text-xs  items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
-                            Read more ...
+                            class="inline-flex text-md items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                            Read more
                         </a>
                     </div>
                 </article>
