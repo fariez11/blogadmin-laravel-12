@@ -9,6 +9,10 @@
             @if (request('author'))
                 <input type="hidden" name="author" value="{{ request('author') }}">
             @endif
+
+            {{-- <a href="{{ request()->fullUrlWithQuery(['kategori' => 'teknologi']) }}">      ~> jika ingin menggabungkan semua param dalam case
+                Teknologi                                                                           jika kita ingin mencari berdasarkan kategori dan
+             </a>                                                                                   penulis (link penulisnya juga perlu dibikin gini juga)  --}}
             <label for="default-search"
                 class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div class="relative">
@@ -47,7 +51,8 @@
                     <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         <a href="/posts/{{ $blog['slug'] }}">{{ $blog->title }}</a>
                     </h2>
-                    <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ Str::limit($blog['body'], 150) }}</p>
+                    <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ Str::limit($blog['body'], 150) }}
+                    </p>
                     <div class="flex justify-between items-center">
                         <div class="flex items-center space-x-4">
                             <a href="/posts?author={{ $blog->author->username }}">

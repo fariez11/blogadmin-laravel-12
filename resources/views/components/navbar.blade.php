@@ -32,9 +32,9 @@
                                     class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
                             </button>
                         @else
-                            <a href="/login" class="text-white text-sm font-medium">login</a>
+                            <a href="/login" class="text-white text-sm font-medium hover:bg-slate-700 py-2 px-3 rounded-md">login</a>
                             <span class="text-white">/</span>
-                            <a href="/register" class="text-white text-sm font-medium">register</a>
+                            <a href="/register" class="text-white text-sm font-medium hover:bg-slate-700 py-2 px-3 rounded-md">register</a>
                         @endif
 
                         <el-menu anchor="bottom end" popover
@@ -42,7 +42,7 @@
                             <a href="/profile"
                                 class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Your
                                 profile</a>
-                            <a href="/dashboard"
+                            <a href="/dashboard/posts"
                                 class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Settings</a>
                             <form action="/logout" method="POST" class="block">
                                 @csrf
@@ -112,9 +112,9 @@
                 </div>
             @else
                 <div class="text-center space-x-4">
-                    <a href="/login" class="text-gray-300 text-md font-medium">Login</a>
+                    <a href="/login" class="text-gray-300 text-md font-medium hover:bg-slate-700 rounded-md px-3 py-2">Login</a>
                     <span class="text-gray-300">|</span>
-                    <a href="/register" class="text-gray-300 text-md font-medium">Register</a>
+                    <a href="/register" class="text-gray-300 text-md font-medium hover:bg-slate-700 rounded-md px-3 py-2">Register</a>
                 </div>
             @endif
 

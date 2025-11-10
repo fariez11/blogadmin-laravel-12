@@ -1,12 +1,13 @@
 <!-- Start block -->
 <section class="p-3 sm:p-5 antialiased">
-    <div class="max-w-screen-xl px-4">
+    {{-- <div class="max-w-screen-xl px-4">        ~> jika menggunakan container     --}}
+    <div class="max-w-7xl px-4">
         <!-- Start coding here -->
-        <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg overflow-hidden mb-3">
+        <div class="bg-white dark:bg-gray-800 relative border sm:rounded-lg overflow-hidden my-3">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                 <div class="w-full md:w-1/2">
-                    <form class="flex items-center">
-                        <label for="simple-search" class="sr-only">Search</label>
+                    <form class="flex items-center" action="" method="GET">
+                        <label for="simple-search" class="sr-only">search post </label>
                         <div class="relative w-full">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
@@ -16,9 +17,9 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <input type="text" id="simple-search"
+                            <input type="text" id="simple-search" name="search"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Search" required="" autocomplete="off">
+                                placeholder="search post" autocomplete="off">
                         </div>
                     </form>
                 </div>
@@ -27,106 +28,16 @@
                     <button type="button" id="createProductModalButton" data-modal-target="createProductModal"
                         data-modal-toggle="createProductModal"
                         class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
-                        <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path clip-rule="evenodd" fill-rule="evenodd"
-                                d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                        <svg class="w-[18px] h-[18px] text-white-800 dark:text-white me-1" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z"
+                                clip-rule="evenodd" />
                         </svg>
+
                         Add post
                     </button>
-                    <div class="flex items-center space-x-3 w-full md:w-auto">
-
-                        <div id="filterDropdown"
-                            class="z-10 hidden w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
-                            <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">Category</h6>
-                            <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
-                                <li class="flex items-center">
-                                    <input id="apple" type="checkbox" value=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="apple"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Apple
-                                        (56)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="fitbit" type="checkbox" value=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="fitbit"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Fitbit
-                                        (56)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="dell" type="checkbox" value=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="dell"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Dell
-                                        (56)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="asus" type="checkbox" value="" checked=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="asus"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Asus
-                                        (97)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="logitech" type="checkbox" value="" checked=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="logitech"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Logitech
-                                        (97)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="msi" type="checkbox" value="" checked=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="msi"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">MSI
-                                        (97)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="bosch" type="checkbox" value="" checked=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="bosch"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Bosch
-                                        (176)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="sony" type="checkbox" value=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="sony"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Sony
-                                        (234)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="samsung" type="checkbox" value="" checked=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="samsung"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Samsung
-                                        (76)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="canon" type="checkbox" value=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="canon"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Canon
-                                        (49)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="microsoft" type="checkbox" value=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="microsoft"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Microsoft
-                                        (45)</label>
-                                </li>
-                                <li class="flex items-center">
-                                    <input id="razor" type="checkbox" value=""
-                                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="razor"
-                                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Razor
-                                        (49)</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="overflow-x-auto">
@@ -152,10 +63,17 @@
                 </table>
             </div>
         </div>
-        {{ $datas->links() }}
+
+        @if ($datas->hasPages())
+            {{ $datas->links() }}
+        @endif
     </div>
 </section>
 <!-- End block -->
+
+
+
+
 <!-- Create modal -->
 <div id="createProductModal" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -232,6 +150,11 @@
         </div>
     </div>
 </div>
+
+
+
+
+
 <!-- Update modal -->
 <div id="updateProductModal" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -313,6 +236,11 @@
         </div>
     </div>
 </div>
+
+
+
+
+
 <!-- Read modal -->
 <div id="readProductModal" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -378,6 +306,11 @@
         </div>
     </div>
 </div>
+
+
+
+
+
 <!-- Delete modal -->
 <div id="deleteModal" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">

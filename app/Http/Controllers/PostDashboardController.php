@@ -1,9 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostDashboardController extends Controller
 {
@@ -12,7 +12,18 @@ class PostDashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.post', ['posts' => Post::latest()->paginate(6)->withQueryString()]);
+        $post = Post::latest();
+
+        if (!Auth::user()->is_admin) {
+            $post->where('author_id', Auth::user()->id);
+        }
+
+        if(request('search')){
+            $post->where('title', 'like', '%'. request('search') .'%' );
+        }
+
+
+        return view('pages.posts', ['posts' => $post->paginate(6)->withQueryString()]);
     }
 
     /**
