@@ -23,7 +23,7 @@ class PostDashboardController extends Controller
         }
 
 
-        return view('pages.posts', ['posts' => $post->paginate(6)->withQueryString()]);
+        return view('pages.post.index', ['posts' => $post->paginate(6)->withQueryString()]);
     }
 
     /**
@@ -45,9 +45,9 @@ class PostDashboardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Post $post)
     {
-        //
+        return view('pages.post.detail', ['post' => $post]);
     }
 
     /**

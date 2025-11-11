@@ -33,8 +33,8 @@ Route::get('/contact', function () {
 
 Route::get('/dashboard', fn()  => view('dashboard'))->middleware(['auth','verified'])->name('dashboard');               // ~> arrow function version
 
-// Route::get('/dashboard', [PostDashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard/posts', [PostDashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('post.read');
+Route::get('/dashboard/posts/{post:slug}', [PostDashboardController::class, 'show'])->middleware(['auth', 'verified'])->name('post.show');
 
 
 Route::middleware('auth')->group(function () {

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('dashboard') }}
+            {{ __('data post') }}
         </h2>
     </x-slot>
 
@@ -16,7 +16,7 @@
                                 {{-- {{ $loop->iteration }} --}}
                                 {{ ($posts->currentPage() - 1) * $posts->perPage() + $index + 1 }}
                             </td>
-                            <td class="px-4 py-3">{{ $post->title }}</td>
+                            <td class="px-4 py-3 w-1/3">{{ $post->title }}</td>
                             @if (Auth::user()->is_admin)
                                 <td class="px-4 py-3">{{ $post->author->name }}</td>
                             @endif
@@ -51,7 +51,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a type="button"
+                                            <a href="/dashboard/posts/{{ $post->slug }}"
                                                 class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
                                                 <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg"
                                                     viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -59,7 +59,7 @@
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                                         d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" />
                                                 </svg>
-                                                show post
+                                                detail
                                             </a>
                                         </li>
                                         <li>
