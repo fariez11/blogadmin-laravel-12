@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,9 @@ class PostDashboardController extends Controller
      */
     public function create()
     {
-        //
+        $category = Category::get();
+
+        return view('pages.post.create', ['categories' => $category]);
     }
 
     /**
@@ -47,7 +50,7 @@ class PostDashboardController extends Controller
      */
     public function show(Post $post)
     {
-        return view('pages.post.detail', ['post' => $post]);
+        return view('pages.post.show', ['post' => $post]);
     }
 
     /**

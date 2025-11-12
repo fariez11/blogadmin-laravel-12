@@ -42,7 +42,7 @@
                             <a href="/profile"
                                 class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Your
                                 profile</a>
-                            <a href="/dashboard/posts"
+                            <a href="/dashboard/post"
                                 class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Settings</a>
                             <form action="/logout" method="POST" class="block">
                                 @csrf

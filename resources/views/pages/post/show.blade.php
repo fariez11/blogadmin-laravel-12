@@ -9,7 +9,7 @@
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xs sm:rounded-lg py-10">
                 <article class="mx-auto w-full max-w-4xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-                    <a href="/dashboard/posts"
+                    <a href="{{ route('post.read') }}"
                         class="font-medium text-blue-500 no-underline mb-3 inline-flex items-center">
                         <svg class="w-6 h-6" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
