@@ -43,9 +43,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard'); // ~> arrow function version
     Route::get('/dashboard/post', [PostDashboardController::class, 'index'])->name('post.read');
     Route::get('/dashboard/post/create', [PostDashboardController::class, 'create'])->name('post.create');
-    Route::get('/dashboard/post/store', [PostDashboardController::class, 'store'])->name('post.store');
+    Route::post('/dashboard/post/store', [PostDashboardController::class, 'store'])->name('post.store');
     Route::delete('/dashboard/post/{post:slug}', [PostDashboardController::class, 'destroy'])->name('post.delete');
-    Route::get('/dashboard/post/{post:slug}', [PostDashboardController::class, 'edit'])->name('post.edit');
+    Route::get('/dashboard/post/{post:slug}/edit', [PostDashboardController::class, 'edit'])->name('post.edit');
+    Route::patch('/dashboard/post/{post:slug}/update', [PostDashboardController::class, 'update'])->name('post.update');
     Route::get('/dashboard/post/{post:slug}', [PostDashboardController::class, 'show'])->name('post.show');
 });
 

@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class PostDashboardController extends Controller
@@ -49,21 +50,6 @@ class PostDashboardController extends Controller
             'body'        => 'required',
         ]);
 
-        // Validator::make($request->all(), [
-        //     'title'       => 'required|unique:posts|min:10|max:100',
-        //     'category_id' => 'required',
-        //     'body'        => 'required',
-
-        // ],[
-        //     'required' => 'field :attribute ini harus diisi',
-        //     'category_id.required' => 'pilih salah satu dari :attribute ini',
-        //     'body.require' => 'field body ini tidak boleh kosong'
-        // ],[
-        //     'title' => 'judul',
-        //     'category_id' => 'kategori',
-        //     'body' => 'isi blog '
-        // ])->validate();
-
         Post::create([
             'title'       => Str::title($request->title),
             'slug'        => Str::slug($request->title),
@@ -86,17 +72,45 @@ class PostDashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        //
+        $category = Category::get();
+
+        return view('pages.post.edit', ['post' => $post, 'categories' => $category]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        //
+
+        // return $post;
+        Validator::make($request->all(), [
+            'title'       => 'required|min:10|max:100|unique:posts,title,' . $post->id,
+            'category_id' => 'required',
+            'body'        => 'required',
+
+        ], [
+            'required'             => 'field :attribute ini harus diisi',
+            'category_id.required' => 'pilih salah satu dari :attribute ini',
+            'body.required'         => 'field body ini tidak boleh kosong',
+            'title.unique'         => ':attribute sudah terdaftar sebelumnya',
+        ], [
+            'title'       => 'judul',
+            'category_id' => 'kategori',
+            'body'        => 'isi blog ',
+        ])->validate();
+
+        $post->update([
+            'title'       => Str::title($request->title),
+            'slug'        => Str::slug($request->title),
+            'author_id'   => Auth::user()->id,
+            'category_id' => $request->category_id,
+            'body'        => $request->body,
+        ]);
+
+        return redirect(route('post.read'))->with(['success' => 'your post has been updated']);
     }
 
     /**

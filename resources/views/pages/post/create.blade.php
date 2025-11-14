@@ -1,4 +1,4 @@
-<x-app-layout>
+{{-- <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Create Post
@@ -9,7 +9,7 @@
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
 
             <div class=" p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
-                {{-- @if ($errors->any())
+                @if ($errors->any())
                     <div id="alert-additional-content-1"
                         class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-200 border border-brand-subtle"
                         role="alert">
@@ -42,7 +42,7 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif --}}
+                @endif
                 <form action="{{ route('post.store') }}">
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
@@ -56,22 +56,8 @@
                             @enderror
                         </div>
 
-                        {{-- oninput="slug.value = this.value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')" attr element untuk membuat slug otomatis dan langsung ditampilkan --}}
+                        oninput="slug.value = this.value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')" attr element untuk membuat slug otomatis dan langsung ditampilkan
 
-                        {{-- <div>
-                            <label for="slug"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
-                            <input type="text" name="slug" id="slug"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                readonly>
-                        </div> --}}
-                        {{-- <div>
-                            <label for="author"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Author</label>
-                            <input type="text"id="author" value="{{ Auth::user()->name }}"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                readonly>
-                        </div> --}}
                         <div>
                             <label for="category"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
@@ -128,4 +114,17 @@
         </div>
     </div>
 
+</x-app-layout> --}}
+
+
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Create Post
+        </h2>
+    </x-slot>
+
+    <x-form.post :post="null" :action="route('post.store')" method="POST" :categories="$categories" />
+
 </x-app-layout>
+
