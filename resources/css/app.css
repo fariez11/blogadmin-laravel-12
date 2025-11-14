@@ -1,8 +1,10 @@
 @import "tailwindcss";
+@import "flowbite/dist/flowbite.css";
 
-@import "flowbite/src/themes/default";
+/* @import "flowbite/src/themes/default"; */
 @plugin "flowbite/plugin";
 @plugin "flowbite-typography";
+
 
 @plugin '@tailwindcss/forms';
 

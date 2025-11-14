@@ -7,5 +7,7 @@ hal baru
 
 
 rencana
+
+  - routing menggunakan name (route(blablabla))
   - component card reusable untuk tiap halaman
   - component modal reusable

@@ -21,7 +21,7 @@ class Post extends Model
         'category_id',
         'body',
     ];
-    // protected $guarded = ['id']; // kebalikan dari fillable (ini artinya selain id, field lain boleh diisi secara massal)
+    // protected $guarded = ['id'];         ~> kebalikan dari fillable (ini artinya selain id, field lain boleh diisi secara massal)
 
     // untuk eager loading secara otomatis setiap memanggil model Post
     protected $with = ['author', 'category'];
